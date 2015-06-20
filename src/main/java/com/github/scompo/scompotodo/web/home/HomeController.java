@@ -10,12 +10,12 @@ public class HomeController {
 	@RequestMapping("/")
 	public String index() {
 
-		return "/pages/main/index";
+		return "main";
 	}
 
 	@RequestMapping(value = "hello", method = RequestMethod.GET)
 	public String hello() {
 
-		return "/pages/hello/index";
+		return "hello";
 	}
 }
