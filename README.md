@@ -6,5 +6,7 @@ List of to do activities
 
 ### master
 
+[![Build Status](https://travis-ci.org/scompo/scompo-to-do.svg?branch=master)](https://travis-ci.org/scompo/scompo-to-do)
+
 ### production
 
