@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="main-layout">
+<head>
+<title>hello</title>
+<script src="/js/hello.js"></script>
+</head>
+<body>
+	<div layout:fragment="header-content">
+		<h1>hello</h1>
+	</div>
+	<div layout:fragment="content">
+		<h3>Api hello controller says:</h3>
+		<p id="helloRestResult"></p>
+	</div>
+</body>
+</html>
