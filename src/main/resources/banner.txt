@@ -1,0 +1,3 @@
+scompo-to-do ${application.formatted-version}
+
+Running with spring-boot ${spring-boot.formatted-version}
