@@ -10,3 +10,4 @@ List of to do activities
 
 ### production
 
+[![Build Status](https://travis-ci.org/scompo/scompo-to-do.svg?branch=production)](https://travis-ci.org/scompo/scompo-to-do)
