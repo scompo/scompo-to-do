@@ -19,6 +19,12 @@
 		<div role="main" class="ui-content" layout:fragment="content">
 			Placeholder content!</div>
 
+		<div data-role="footer">
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Sign Out" />
+			</form>
+		</div>
+
 	</div>
 </body>
 </html>
