@@ -8,6 +8,8 @@ import java.lang.annotation.Target;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.github.scompo.scompotodo.Application;
 
@@ -15,6 +17,7 @@ import com.github.scompo.scompotodo.Application;
 @Retention(RetentionPolicy.RUNTIME)
 @WebIntegrationTest
 @SpringApplicationConfiguration(classes = Application.class)
+@Transactional(propagation = Propagation.REQUIRED)
 @TransactionConfiguration(defaultRollback = true)
 public @interface IntegrationTransactionalTest {
 

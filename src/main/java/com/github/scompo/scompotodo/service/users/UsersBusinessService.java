@@ -10,7 +10,8 @@ import com.github.scompo.scompotodo.domain.users.User;
 
 @Service
 @Transactional
-public class UsersBusinessService extends AbstractCrudService<User, String> {
+public class UsersBusinessService extends AbstractCrudService<User, String>
+		implements UsersService {
 
 	@Override
 	@Autowired
@@ -18,6 +19,14 @@ public class UsersBusinessService extends AbstractCrudService<User, String> {
 			PagingAndSortingRepository<User, String> repository) {
 
 		super.setRepository(repository);
+	}
+
+	@Override
+	public User doUpdate(User fromDb, User dto) {
+
+		fromDb.setEmail(dto.getEmail());
+
+		return fromDb;
 	}
 
 }

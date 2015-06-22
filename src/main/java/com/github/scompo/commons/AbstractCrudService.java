@@ -46,9 +46,15 @@ public abstract class AbstractCrudService<T, ID extends Serializable>
 	public T update(ID id, T t) {
 
 		logger.debug("Called update with t={}, id={}", t, id);
+		
+		T fromDao = read(id);
+		
+		fromDao = doUpdate(fromDao, t);
 
-		return repository.save(t);
+		return repository.save(fromDao);
 	}
+
+	public abstract T doUpdate(T fromDb, T dto);
 
 	@Override
 	public void delete(ID id) {

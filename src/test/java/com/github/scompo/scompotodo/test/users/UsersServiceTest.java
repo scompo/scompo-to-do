@@ -1,5 +1,6 @@
 package com.github.scompo.scompotodo.test.users;
 
+import static com.github.scompo.scompotodo.test.constants.UsersTestConstants.*;
 import static org.junit.Assert.*;
 
 import org.junit.After;
@@ -11,7 +12,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.github.scompo.scompotodo.domain.users.User;
@@ -55,28 +55,74 @@ public class UsersServiceTest {
 	}
 
 	@Test
-	public void testCreate() {
-		fail("Not yet implemented"); // TODO
+	public void testReadPageWithUsers() {
+
+		User user = usersService.create(createUser(UsersForTestType.USER_OK_1));
+
+		Pageable pageable = null;
+
+		Page<User> res = null;
+
+		res = usersService.readPage(pageable);
+
+		assertNotNull(res);
+		assertEquals(1, res.getContent().size());
+
+		assertEquals(user, res.getContent().get(0));
+	}
+
+	@Test
+	public void testCreateOk() {
+
+		User res = null;
+
+		User user = createUser(UsersForTestType.USER_OK_1);
+
+		res = usersService.create(user);
+
+		assertNotNull(res);
+		assertEquals(user.getUsername(), res.getUsername());
+		assertEquals(user.getEmail(), res.getEmail());
 	}
 
 	@Test
 	public void testRead() {
-		fail("Not yet implemented"); // TODO
+
+		User user = usersService.create(createUser(UsersForTestType.USER_OK_1));
+
+		User res = usersService.read(user.getUsername());
+
+		assertNotNull(res);
+		assertEquals(user.getUsername(), res.getUsername());
+		assertEquals(user.getEmail(), res.getEmail());
 	}
 
 	@Test
 	public void testUpdate() {
-		fail("Not yet implemented"); // TODO
+
+		User user = usersService.create(createUser(UsersForTestType.USER_OK_1));
+
+		User userUpdated = new User();
+
+		userUpdated.setEmail(user.getEmail());
+		userUpdated.setEmail(EMAIL_2);
+
+		User res = usersService.update(user.getUsername(), userUpdated);
+
+		assertNotNull(res);
+		assertEquals(user.getUsername(), res.getUsername());
+		assertEquals(userUpdated.getEmail(), res.getEmail());
 	}
 
 	@Test
 	public void testDelete() {
-		fail("Not yet implemented"); // TODO
-	}
 
-	@Test
-	public void testGetRepository() {
-		fail("Not yet implemented"); // TODO
+		User user = usersService.create(createUser(UsersForTestType.USER_OK_1));
+
+		usersService.delete(user.getUsername());
+
+		assertNull(usersService.read(user.getUsername()));
+
 	}
 
 }
