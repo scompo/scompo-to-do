@@ -12,4 +12,9 @@ public interface V1ApiEndpoints {
 
 		public static final String HELLO = V1_API_PREFIX + "/hello";
 	}
+	
+	public interface UsersEndpoints {
+
+		public static final String USER = V1_API_PREFIX + "/users";
+	}
 }

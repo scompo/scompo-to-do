@@ -12,6 +12,7 @@ import com.github.scompo.scompotodo.api.v1.V1ApiEndpoints;
 import com.github.scompo.scompotodo.service.hello.HelloService;
 
 @RestController
+@RequestMapping(value = V1ApiEndpoints.HelloEndpoints.HELLO)
 public class HelloController {
 
 	private static final Logger logger = LoggerFactory
@@ -21,7 +22,7 @@ public class HelloController {
 	private HelloService helloService;
 
 	@ResponseBody
-	@RequestMapping(value = V1ApiEndpoints.HelloEndpoints.HELLO, method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public String sayHello() {
 
 		logger.info("called sayHello");
