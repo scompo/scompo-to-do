@@ -1,7 +1,9 @@
 package com.github.scompo.scompotodo.test.users;
 
-import static com.github.scompo.scompotodo.test.constants.UsersTestConstants.*;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -15,12 +17,24 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.github.scompo.scompotodo.domain.users.User;
+import com.github.scompo.scompotodo.domain.users.UserFactory;
 import com.github.scompo.scompotodo.service.users.UsersService;
 import com.github.scompo.scompotodo.test.commons.IntegrationTransactionalTest;
 
 @IntegrationTransactionalTest
 @RunWith(SpringJUnit4ClassRunner.class)
 public class UsersServiceTest {
+
+	public enum UsersForTestType {
+
+		USER_OK_1
+	}
+
+	public static final String USERNAME_1 = "username1";
+
+	public static final String EMAIL_1 = "test1@test.com";
+
+	public static final String EMAIL_2 = "test2@test.com";
 
 	@Autowired
 	private UsersService usersService;
@@ -57,7 +71,7 @@ public class UsersServiceTest {
 	@Test
 	public void testReadPageWithUsers() {
 
-		User user = usersService.create(createUser(UsersForTestType.USER_OK_1));
+		User user = createAndSaveUser(UsersForTestType.USER_OK_1);
 
 		Pageable pageable = null;
 
@@ -85,10 +99,33 @@ public class UsersServiceTest {
 		assertEquals(user.getEmail(), res.getEmail());
 	}
 
+	public User createUser(UsersForTestType type) {
+
+		User res = null;
+
+		switch (type) {
+
+		case USER_OK_1:
+
+			res = UserFactory.create(USERNAME_1, EMAIL_1);
+			break;
+
+		default:
+			break;
+		}
+
+		return res;
+	}
+
+	public User createAndSaveUser(UsersForTestType type) {
+
+		return usersService.create(createUser(type));
+	}
+
 	@Test
 	public void testRead() {
 
-		User user = usersService.create(createUser(UsersForTestType.USER_OK_1));
+		User user = createAndSaveUser(UsersForTestType.USER_OK_1);
 
 		User res = usersService.read(user.getUsername());
 
@@ -100,7 +137,7 @@ public class UsersServiceTest {
 	@Test
 	public void testUpdate() {
 
-		User user = usersService.create(createUser(UsersForTestType.USER_OK_1));
+		User user = createAndSaveUser(UsersForTestType.USER_OK_1);
 
 		User userUpdated = new User();
 
@@ -117,7 +154,7 @@ public class UsersServiceTest {
 	@Test
 	public void testDelete() {
 
-		User user = usersService.create(createUser(UsersForTestType.USER_OK_1));
+		User user = createAndSaveUser(UsersForTestType.USER_OK_1);
 
 		usersService.delete(user.getUsername());
 
