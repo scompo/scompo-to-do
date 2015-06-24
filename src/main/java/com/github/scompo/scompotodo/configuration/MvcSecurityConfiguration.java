@@ -7,19 +7,19 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 
-import com.github.scompo.scompotodo.service.users.UsersService;
+import com.github.scompo.scompotodo.services.ToDoUserDetailsService;
 
 @Configuration
 @EnableWebMvcSecurity
 public class MvcSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private UsersService usersService;
+	private ToDoUserDetailsService toDoUserDetailsService;
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.csrf().disable().authorizeRequests().antMatchers("/api/v1/**")
+		http.csrf().disable().authorizeRequests().antMatchers("/api/v1/**","/init")
 				.permitAll().anyRequest().authenticated().and().formLogin()
 				.loginPage("/login").defaultSuccessUrl("/home", true)
 				.permitAll().and().logout().permitAll();
@@ -29,6 +29,6 @@ public class MvcSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth)
 			throws Exception {
 
-		auth.userDetailsService(usersService);
+		auth.userDetailsService(toDoUserDetailsService);
 	}
 }
