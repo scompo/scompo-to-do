@@ -17,4 +17,9 @@ public interface V1ApiEndpoints {
 
 		public static final String USER = V1_API_PREFIX + "/users";
 	}
+	
+	public interface ToDoListEndpoints {
+
+		public static final String TODO = V1_API_PREFIX + "/toDo";
+	}
 }
