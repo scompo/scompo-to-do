@@ -11,7 +11,7 @@ import com.github.scompo.scompotodo.services.ToDoUserDetailsService;
 
 @Configuration
 @EnableWebMvcSecurity
-public class MvcSecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class MvcSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private ToDoUserDetailsService toDoUserDetailsService;
