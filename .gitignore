@@ -13,6 +13,7 @@ pom.xml.next
 release.properties
 
 # Others.
+scompo-to-do.db/
 
 *~
 *.log
