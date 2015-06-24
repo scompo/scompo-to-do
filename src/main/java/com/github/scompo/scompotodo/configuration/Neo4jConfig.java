@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.neo4j.config.Neo4jConfiguration;
 
 @Configuration
-public class DatabaseConfig extends Neo4jConfiguration {
+public class Neo4jConfig extends Neo4jConfiguration {
 
 	{
 		setBasePackage("com.github.scompo.scompoToDo.domain");
