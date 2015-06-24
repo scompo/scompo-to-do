@@ -24,7 +24,7 @@ import com.github.scompo.scompotodo.test.commons.IntegrationTransactionalTest;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @IntegrationTransactionalTest
-public class UsersTests {
+public class UsersTest {
 
 	private static final String USER_NAME = "User Name";
 
