@@ -22,8 +22,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.github.scompo.scompotodo.domain.CollaborationRole;
-import com.github.scompo.scompotodo.domain.ToDoList;
-import com.github.scompo.scompotodo.domain.ToDoUser;
+import com.github.scompo.scompotodo.domain.List;
+import com.github.scompo.scompotodo.domain.User;
 import com.github.scompo.scompotodo.repository.ToDoListRepository;
 import com.github.scompo.scompotodo.services.ToDoUserDetailsService;
 import com.github.scompo.scompotodo.test.commons.TransactionalTest;
@@ -57,14 +57,14 @@ public class ListTest {
 	@Test
 	public void test() {
 
-		ToDoUser userSaved1 = createAndSaveUser(USER_LOGIN_1, USER_PASSWORD_1,
+		User userSaved1 = createAndSaveUser(USER_LOGIN_1, USER_PASSWORD_1,
 				USER_NAME_1);
 
-		ToDoUser userSaved2 = createAndSaveUser(USER_LOGIN_2, USER_PASSWORD_2,
+		User userSaved2 = createAndSaveUser(USER_LOGIN_2, USER_PASSWORD_2,
 				USER_NAME_2);
 
-		ToDoList listToSave = null;
-		ToDoList listSaved = null;
+		List listToSave = null;
+		List listSaved = null;
 
 		listToSave = createList(LIST_NAME);
 
@@ -83,7 +83,7 @@ public class ListTest {
 		assertTrue(listSaved.getCollaborators().contains(userSaved2));
 	}
 
-	private ToDoUser createAndSaveUser(String userLogin, String userPassword,
+	private User createAndSaveUser(String userLogin, String userPassword,
 			String userName) {
 
 		return toDoUserDetailsService.save(createUser(userLogin, userPassword,

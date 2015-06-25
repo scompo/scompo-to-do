@@ -12,9 +12,9 @@ public class ToDoUserDetails implements UserDetails {
 
 	private static final boolean DEFAULT_VALUE = true;
 
-	private ToDoUser user;
+	private User user;
 
-	public ToDoUserDetails(ToDoUser user) {
+	public ToDoUserDetails(User user) {
 
 		this.user = user;
 	}
@@ -68,11 +68,11 @@ public class ToDoUserDetails implements UserDetails {
 		return DEFAULT_VALUE;
 	}
 
-	public ToDoUser getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(ToDoUser user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 

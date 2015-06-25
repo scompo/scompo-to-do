@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.github.scompo.scompotodo.domain.AuthorizationRole;
-import com.github.scompo.scompotodo.domain.ToDoList;
-import com.github.scompo.scompotodo.domain.ToDoUser;
+import com.github.scompo.scompotodo.domain.List;
+import com.github.scompo.scompotodo.domain.User;
 
 public abstract class TestUtils {
 
@@ -27,9 +27,9 @@ public abstract class TestUtils {
 	
 	public static final String LIST_NAME = "listName";
 
-	public static ToDoUser createUser(String login, String password, String name) {
+	public static User createUser(String login, String password, String name) {
 
-		ToDoUser userToCreate = new ToDoUser();
+		User userToCreate = new User();
 
 		Set<AuthorizationRole> authorizationRoles = new HashSet<>();
 
@@ -44,9 +44,9 @@ public abstract class TestUtils {
 		return userToCreate;
 	}
 
-	public static ToDoList createList(String name) {
+	public static List createList(String name) {
 
-		ToDoList res = new ToDoList();
+		List res = new List();
 
 		res.setName(name);
 

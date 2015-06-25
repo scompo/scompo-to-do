@@ -9,7 +9,7 @@ import org.springframework.data.neo4j.annotation.NodeEntity;
 import org.springframework.data.neo4j.annotation.RelatedToVia;
 
 @NodeEntity
-public class ToDoUser extends AbstractEntity{
+public class User extends AbstractEntity{
 
 	@Indexed(unique = true, failOnDuplicate = true)
 	private String login;
@@ -21,9 +21,9 @@ public class ToDoUser extends AbstractEntity{
 	private Set<AuthorizationRole> authorizationRoles;
 	
 	@RelatedToVia(type = "COLLABORATOR_ON", direction = Direction.OUTGOING)
-	private Collection<ToDoCollaboration> collaborations;
+	private Collection<Collaboration> collaborations;
 
-	public ToDoUser() {
+	public User() {
 
 	}
 
@@ -59,9 +59,9 @@ public class ToDoUser extends AbstractEntity{
 		this.authorizationRoles = authorizationRoles;
 	}
 	
-	public ToDoCollaboration userOf(ToDoList list, CollaborationRole role){
+	public Collaboration userOf(List list, CollaborationRole role){
 		
-		ToDoCollaboration toDoCollaboration = new ToDoCollaboration();
+		Collaboration toDoCollaboration = new Collaboration();
 		toDoCollaboration.setUser(this);
 		toDoCollaboration.setList(list);
 		toDoCollaboration.setRole(role);
@@ -71,11 +71,11 @@ public class ToDoUser extends AbstractEntity{
 		return toDoCollaboration;
 	}
 
-	public Collection<ToDoCollaboration> getCollaborations() {
+	public Collection<Collaboration> getCollaborations() {
 		return collaborations;
 	}
 
-	public void setCollaborations(Collection<ToDoCollaboration> collaborations) {
+	public void setCollaborations(Collection<Collaboration> collaborations) {
 		this.collaborations = collaborations;
 	}
 

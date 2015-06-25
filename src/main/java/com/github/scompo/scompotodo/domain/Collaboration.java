@@ -5,33 +5,33 @@ import org.springframework.data.neo4j.annotation.RelationshipEntity;
 import org.springframework.data.neo4j.annotation.StartNode;
 
 @RelationshipEntity(type = "COLLABORATOR_ON")
-public class ToDoCollaboration extends AbstractEntity{
+public class Collaboration extends AbstractEntity{
 
 	@StartNode
-	private ToDoUser user;
+	private User user;
 
 	@EndNode
-	private ToDoList list;
+	private List list;
 
 	private CollaborationRole role;
 
-	public ToDoCollaboration() {
+	public Collaboration() {
 
 	}
 
-	public ToDoUser getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(ToDoUser user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 
-	public ToDoList getList() {
+	public List getList() {
 		return list;
 	}
 
-	public void setList(ToDoList list) {
+	public void setList(List list) {
 		this.list = list;
 	}
 

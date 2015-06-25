@@ -19,7 +19,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.github.scompo.scompotodo.domain.AuthorizationRole;
-import com.github.scompo.scompotodo.domain.ToDoUser;
+import com.github.scompo.scompotodo.domain.User;
 import com.github.scompo.scompotodo.repository.ToDoUserRepository;
 import com.github.scompo.scompotodo.test.commons.TransactionalTest;
 
@@ -50,8 +50,8 @@ public class UsersTest {
 	@Test
 	public void testCreateUser() {
 
-		ToDoUser userToCreate = null;
-		ToDoUser userCreated = null;
+		User userToCreate = null;
+		User userCreated = null;
 
 		userToCreate = createUser(USER_LOGIN_1, USER_PASSWORD_1, USER_NAME_1);
 

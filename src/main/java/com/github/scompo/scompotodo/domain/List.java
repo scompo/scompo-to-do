@@ -10,18 +10,18 @@ import org.springframework.data.neo4j.annotation.RelatedTo;
 import org.springframework.data.neo4j.annotation.RelatedToVia;
 
 @NodeEntity
-public class ToDoList extends AbstractEntity{
+public class List extends AbstractEntity{
 	
 	private String name;
 
 	@Fetch
 	@RelatedTo(type = "COLLABORATOR_ON", direction = Direction.INCOMING)
-	private Set<ToDoUser> collaborators;
+	private Set<User> collaborators;
 	
 	@RelatedToVia(type = "COLLABORATOR_ON", direction = Direction.INCOMING)
-	private Collection<ToDoCollaboration> collaborations;
+	private Collection<Collaboration> collaborations;
 
-	public ToDoList() {
+	public List() {
 
 	}
 
@@ -33,19 +33,19 @@ public class ToDoList extends AbstractEntity{
 		this.name = name;
 	}
 
-	public Set<ToDoUser> getCollaborators() {
+	public Set<User> getCollaborators() {
 		return collaborators;
 	}
 
-	public void setCollaborators(Set<ToDoUser> collaborators) {
+	public void setCollaborators(Set<User> collaborators) {
 		this.collaborators = collaborators;
 	}
 
-	public Collection<ToDoCollaboration> getCollaborations() {
+	public Collection<Collaboration> getCollaborations() {
 		return collaborations;
 	}
 
-	public void setCollaborations(Collection<ToDoCollaboration> collaborations) {
+	public void setCollaborations(Collection<Collaboration> collaborations) {
 		this.collaborations = collaborations;
 	}
 }

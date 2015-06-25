@@ -1,6 +1,6 @@
 package com.github.scompo.scompotodo.domain;
 
 
-public class ToDoEntry {
+public class Entry {
 	
 }

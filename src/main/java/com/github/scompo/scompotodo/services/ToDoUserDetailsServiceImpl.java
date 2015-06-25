@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.github.scompo.scompotodo.domain.AuthorizationRole;
-import com.github.scompo.scompotodo.domain.ToDoUser;
+import com.github.scompo.scompotodo.domain.User;
 import com.github.scompo.scompotodo.domain.ToDoUserDetails;
 import com.github.scompo.scompotodo.repository.ToDoUserRepository;
 
@@ -28,7 +28,7 @@ public class ToDoUserDetailsServiceImpl implements ToDoUserDetailsService {
 	public UserDetails loadUserByUsername(String login)
 			throws UsernameNotFoundException {
 
-		ToDoUser user = findByLogin(login);
+		User user = findByLogin(login);
 
 		if (user == null) {
 
@@ -38,13 +38,13 @@ public class ToDoUserDetailsServiceImpl implements ToDoUserDetailsService {
 		return new ToDoUserDetails(user);
 	}
 
-	private ToDoUser findByLogin(String login) {
+	private User findByLogin(String login) {
 
 		return toDoUserRepository.findByLogin(login);
 	}
 
 	@Override
-	public ToDoUser getUserFromSession() {
+	public User getUserFromSession() {
 
 		SecurityContext securityContext = SecurityContextHolder.getContext();
 
@@ -65,7 +65,7 @@ public class ToDoUserDetailsServiceImpl implements ToDoUserDetailsService {
 	@Override
 	public void init() {
 
-		ToDoUser testUser = new ToDoUser();
+		User testUser = new User();
 
 		testUser.setLogin("test");
 		testUser.setPassword("test");
@@ -79,7 +79,7 @@ public class ToDoUserDetailsServiceImpl implements ToDoUserDetailsService {
 	}
 
 	@Override
-	public ToDoUser save(ToDoUser userSaved) {
+	public User save(User userSaved) {
 		
 		return toDoUserRepository.save(userSaved);
 	}

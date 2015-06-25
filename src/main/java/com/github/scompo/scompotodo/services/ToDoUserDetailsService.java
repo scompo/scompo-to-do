@@ -2,13 +2,13 @@ package com.github.scompo.scompotodo.services;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-import com.github.scompo.scompotodo.domain.ToDoUser;
+import com.github.scompo.scompotodo.domain.User;
 
 public interface ToDoUserDetailsService extends UserDetailsService {
 
-	ToDoUser getUserFromSession();
+	User getUserFromSession();
 
 	void init();
 
-	ToDoUser save(ToDoUser userSaved1);
+	User save(User userSaved1);
 }
