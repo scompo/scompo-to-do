@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,7 +27,6 @@ public class ToDoUserDetailsServiceImpl implements ToDoUserDetailsService {
 	}
 
 	@Autowired
-	@Lazy
 	private ToDoUserRepository toDoUserRepository;
 
 	@Override
@@ -83,6 +81,12 @@ public class ToDoUserDetailsServiceImpl implements ToDoUserDetailsService {
 		testUser.setAuthorizationRoles(roles);
 
 		toDoUserRepository.save(testUser);
+	}
+
+	@Override
+	public ToDoUser save(ToDoUser userSaved) {
+		
+		return toDoUserRepository.save(userSaved);
 	}
 
 }

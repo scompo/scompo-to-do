@@ -19,14 +19,13 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.github.scompo.scompotodo.domain.CollaborationRole;
 import com.github.scompo.scompotodo.domain.ToDoList;
 import com.github.scompo.scompotodo.domain.ToDoListRepository;
 import com.github.scompo.scompotodo.domain.ToDoUser;
-import com.github.scompo.scompotodo.domain.ToDoUserRepository;
+import com.github.scompo.scompotodo.services.ToDoUserDetailsService;
 import com.github.scompo.scompotodo.test.commons.IntegrationTransactionalTest;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -34,12 +33,10 @@ import com.github.scompo.scompotodo.test.commons.IntegrationTransactionalTest;
 public class ListTest {
 
 	@Autowired
-	@Lazy
 	private ToDoListRepository toDoListRepository;
 
 	@Autowired
-	@Lazy
-	private ToDoUserRepository toDoUserRepository;
+	private ToDoUserDetailsService toDoUserDetailsService;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -76,8 +73,8 @@ public class ListTest {
 		userSaved1.userOf(listSaved, CollaborationRole.EDITOR);
 		userSaved2.userOf(listSaved, CollaborationRole.VIEWER);
 		
-		toDoUserRepository.save(userSaved1);
-		toDoUserRepository.save(userSaved2);
+		toDoUserDetailsService.save(userSaved1);
+		toDoUserDetailsService.save(userSaved2);
 		
 		listSaved = toDoListRepository.findOne(listSaved.getId());
 
@@ -89,7 +86,7 @@ public class ListTest {
 	private ToDoUser createAndSaveUser(String userLogin, String userPassword,
 			String userName) {
 
-		return toDoUserRepository.save(createUser(userLogin, userPassword,
+		return toDoUserDetailsService.save(createUser(userLogin, userPassword,
 				userName));
 	}
 

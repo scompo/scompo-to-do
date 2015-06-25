@@ -9,4 +9,6 @@ public interface ToDoUserDetailsService extends UserDetailsService {
 	ToDoUser getUserFromSession();
 
 	void init();
+
+	ToDoUser save(ToDoUser userSaved1);
 }
