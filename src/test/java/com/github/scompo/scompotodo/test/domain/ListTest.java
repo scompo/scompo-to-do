@@ -19,7 +19,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.neo4j.support.Neo4jTemplate;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.github.scompo.scompotodo.domain.CollaborationRole;
@@ -34,13 +34,12 @@ import com.github.scompo.scompotodo.test.commons.IntegrationTransactionalTest;
 public class ListTest {
 
 	@Autowired
+	@Lazy
 	private ToDoListRepository toDoListRepository;
 
 	@Autowired
+	@Lazy
 	private ToDoUserRepository toDoUserRepository;
-
-	@Autowired
-	private Neo4jTemplate neo4jTemplate;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {

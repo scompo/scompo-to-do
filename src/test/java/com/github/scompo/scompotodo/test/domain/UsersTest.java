@@ -1,6 +1,9 @@
 package com.github.scompo.scompotodo.test.domain;
 
-import static com.github.scompo.scompotodo.test.domain.TestUtils.*;
+import static com.github.scompo.scompotodo.test.domain.TestUtils.USER_LOGIN_1;
+import static com.github.scompo.scompotodo.test.domain.TestUtils.USER_NAME_1;
+import static com.github.scompo.scompotodo.test.domain.TestUtils.USER_PASSWORD_1;
+import static com.github.scompo.scompotodo.test.domain.TestUtils.createUser;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -12,7 +15,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.neo4j.support.Neo4jTemplate;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.github.scompo.scompotodo.domain.AuthorizationRole;
@@ -25,9 +28,7 @@ import com.github.scompo.scompotodo.test.commons.IntegrationTransactionalTest;
 public class UsersTest {
 
 	@Autowired
-	private Neo4jTemplate neo4jTemplate;
-
-	@Autowired
+	@Lazy
 	private ToDoUserRepository toDoUserRepository;
 
 	@BeforeClass
