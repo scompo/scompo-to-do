@@ -20,7 +20,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.github.scompo.scompotodo.domain.AuthorizationRole;
 import com.github.scompo.scompotodo.domain.User;
-import com.github.scompo.scompotodo.repository.ToDoUserRepository;
+import com.github.scompo.scompotodo.repository.UserRepository;
 import com.github.scompo.scompotodo.test.commons.TransactionalTest;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -29,7 +29,7 @@ public class UsersTest {
 
 	@Autowired
 	@Lazy
-	private ToDoUserRepository toDoUserRepository;
+	private UserRepository toDoUserRepository;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {

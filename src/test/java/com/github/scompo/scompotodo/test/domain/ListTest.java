@@ -24,7 +24,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.github.scompo.scompotodo.domain.CollaborationRole;
 import com.github.scompo.scompotodo.domain.List;
 import com.github.scompo.scompotodo.domain.User;
-import com.github.scompo.scompotodo.repository.ToDoListRepository;
+import com.github.scompo.scompotodo.repository.ListRepository;
 import com.github.scompo.scompotodo.services.ToDoUserDetailsService;
 import com.github.scompo.scompotodo.test.commons.TransactionalTest;
 
@@ -33,7 +33,7 @@ import com.github.scompo.scompotodo.test.commons.TransactionalTest;
 public class ListTest {
 
 	@Autowired
-	private ToDoListRepository toDoListRepository;
+	private ListRepository toDoListRepository;
 
 	@Autowired
 	private ToDoUserDetailsService toDoUserDetailsService;

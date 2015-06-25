@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
 	layout:decorator="main-layout">
 <head>
 <title>main</title>
@@ -12,7 +11,7 @@
 		<h1>main</h1>
 	</div>
 	<div layout:fragment="content">
-		<div id="username" sec:authentication="name">username</div>
+		<input class="btn btn-default" id="showListsButton" type="submit" value="Show lists"/>
 	</div>
 </body>
 </html>

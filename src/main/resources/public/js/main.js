@@ -1,6 +1,13 @@
-$(document).on('pageinit', function() {
+ $(window).load(function() {
 	
 	log.enableAll();
 	
-	var username = $("#username").text();
+	$("#showListsButton").unbind();
+	$("#showListsButton").bind("click", onClickShowList);
+	
 });
+
+function onClickShowList() {
+	
+	self.location = "/userLists";
+}

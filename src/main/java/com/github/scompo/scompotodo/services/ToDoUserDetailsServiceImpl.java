@@ -15,14 +15,14 @@ import org.springframework.transaction.annotation.Transactional;
 import com.github.scompo.scompotodo.domain.AuthorizationRole;
 import com.github.scompo.scompotodo.domain.User;
 import com.github.scompo.scompotodo.domain.ToDoUserDetails;
-import com.github.scompo.scompotodo.repository.ToDoUserRepository;
+import com.github.scompo.scompotodo.repository.UserRepository;
 
 @Service
 @Transactional
 public class ToDoUserDetailsServiceImpl implements ToDoUserDetailsService {
 
 	@Autowired
-	private ToDoUserRepository toDoUserRepository;
+	private UserRepository toDoUserRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String login)

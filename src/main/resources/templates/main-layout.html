@@ -1,29 +1,51 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 <meta charset="ISO-8859-1" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">to-do-list</title>
-<link rel="stylesheet"
-	href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script
-	src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<script src="js/loglevel.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"></link>
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="js/external/loglevel.min.js"></script>
 </head>
 <body>
-	<div data-role="page">
+	<script th:inline="javascript">
+		/*<![CDATA[*/
 
-		<div layout:fragment="header-content" data-role="header"></div>
+		var username = /*[[${#authentication.name}]]*/"Test";
 
-		<div role="main" class="ui-content" layout:fragment="content">
-			Placeholder content!</div>
+		/*]]>*/
+	</script>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 page-header">
+				<div class="text-center" layout:fragment="header-content"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12" layout:fragment="content">Placeholder
+				content!</div>
+		</div>
 
-		<div data-role="footer">
-			<form th:action="@{/logout}" method="post">
-				<input type="submit" value="Sign Out" />
-			</form>
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<form th:action="@{/logout}" method="post">
+					<input class="btn btn-default" type="submit" value="Sign Out" />
+				</form>
+			</div>
 		</div>
 
 	</div>

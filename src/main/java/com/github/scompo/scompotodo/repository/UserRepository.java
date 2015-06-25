@@ -4,7 +4,7 @@ import org.springframework.data.neo4j.repository.GraphRepository;
 
 import com.github.scompo.scompotodo.domain.User;
 
-public interface ToDoUserRepository extends GraphRepository<User>{
+public interface UserRepository extends GraphRepository<User>{
 
 	User findByLogin(String login);
 }

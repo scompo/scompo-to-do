@@ -3,16 +3,17 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="main-layout">
 <head>
-<title>hello</title>
-<script src="js/hello/hello.js"></script>
+<title>Lists</title>
 </head>
 <body>
 	<div layout:fragment="header-content">
-		<h1>hello</h1>
+		<h1>Lists</h1>
 	</div>
 	<div layout:fragment="content">
-		<h3>Api hello controller says:</h3>
-		<p id="helloRestResult"></p>
+		<script src="js/userLists.js"></script>
+		
+		<ul data-role="listview">
+		</ul>
 	</div>
 </body>
 </html>

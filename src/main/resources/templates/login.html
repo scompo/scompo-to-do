@@ -10,21 +10,51 @@
 		<h1>login</h1>
 	</div>
 	<div layout:fragment="content">
-		<div th:if="${param.error}">Invalid username and password.</div>
-		<div th:if="${param.logout}">You have been logged out.</div>
-		<form th:action="@{/login}" method="post">
-			<div>
-				<label> User Name : <input type="text" name="username" />
-				</label>
+		<div class="panel panel-warning" th:if="${param.error}">
+			<div class="panel-heading">
+				<h3>Error details</h3>
 			</div>
-			<div>
-				<label> Password: <input type="password" name="password" />
-				</label>
+			<div class="panel-body">Invalid username or password.</div>
+		</div>
+		<div class="panel panel-info" th:if="${param.logout}">
+			<div class="panel-heading">
+				<h3>Logout details</h3>
 			</div>
-			<div>
-				<input type="submit" value="Sign In" />
+			<div class="panel-body">You have been logged out.</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3>Login details</h3>
 			</div>
-		</form>
+			<div class="panel-body">
+				<form class="form-horizontal" th:action="@{/login}" method="post">
+					<div class="form-group">
+						<label class="col-sm-1 control-label" for="username">Login</label>
+						<div class="col-sm-11">
+							<input class="form-control" id="username" type="text"
+								name="username" placeholder="login" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-1 control-label" for="password">Password</label>
+						<div class="col-sm-11">
+							<input class="form-control" id="password" type="password"
+								name="password" placeholder="password" />
+						</div>
+					</div>
+					<input class="btn btn-default" type="submit" value="Sign In" />
+				</form>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3>Register</h3>
+			</div>
+			<div class="panel-body">
+				<p>Register a new account</p>
+				<a class="btn btn-default" th:href="@{/register}">Register</a>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

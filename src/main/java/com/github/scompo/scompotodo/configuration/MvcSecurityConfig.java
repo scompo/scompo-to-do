@@ -19,9 +19,10 @@ public class MvcSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.csrf().disable().authorizeRequests().antMatchers("/api/v1/**","/init")
+		http.csrf().disable().authorizeRequests()
+				.antMatchers("/api/v1/**", "/init", "/register", "/js/**")
 				.permitAll().anyRequest().authenticated().and().formLogin()
-				.loginPage("/login").defaultSuccessUrl("/home", true)
+				.defaultSuccessUrl("/home", true).loginPage("/login")
 				.permitAll().and().logout().permitAll();
 	}
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="main-layout">
+<head>
+<title>Register</title>
+</head>
+<body>
+	<div layout:fragment="header-content">
+		<h1>Register</h1>
+	</div>
+	<div layout:fragment="content">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3>Login details</h3>
+			</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<label class="col-sm-1 control-label" for="login">Login</label>
+					<div class="col-sm-11">
+						<input class="form-control" id="login" type="text"
+							name="login" placeholder="login" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-1 control-label" for="password">Password</label>
+					<div class="col-sm-11">
+						<input class="form-control" id="password" type="password"
+							name="password" placeholder="password" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-1 control-label" for="username">Name</label>
+					<div class="col-sm-11">
+						<input class="form-control" id="username" type="text"
+							name="username" placeholder="name" />
+					</div>
+				</div>
+				<div>
+					<input class="btn btn-default" id="registerButton" type="submit"
+						value="Register" />
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
