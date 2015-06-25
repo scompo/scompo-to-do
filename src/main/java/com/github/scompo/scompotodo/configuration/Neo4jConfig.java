@@ -1,4 +1,4 @@
-package com.github.scompo.scompotodo;
+package com.github.scompo.scompotodo.configuration;
 
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
@@ -8,12 +8,12 @@ import org.springframework.data.neo4j.config.EnableNeo4jRepositories;
 import org.springframework.data.neo4j.config.Neo4jConfiguration;
 
 @Configuration
-@EnableNeo4jRepositories(basePackages = "com.github.scompo.scompoToDo.repository")
+@EnableNeo4jRepositories(basePackages = "com.github.scompo.scompotodo.repository")
 public class Neo4jConfig extends Neo4jConfiguration {
 	
 	public Neo4jConfig(){
 		
-		setBasePackage("com.github.scompo.scompoToDo.domain");
+		setBasePackage("com.github.scompo.scompotodo.domain");
 		System.err.println("set base packages");
 	}
 

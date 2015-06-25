@@ -1,4 +1,4 @@
-package com.github.scompo.scompotodo;
+package com.github.scompo.scompotodo.configuration;
 
 import java.util.List;
 
