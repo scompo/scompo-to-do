@@ -21,10 +21,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.github.scompo.scompotodo.domain.AuthorizationRole;
 import com.github.scompo.scompotodo.domain.ToDoUser;
 import com.github.scompo.scompotodo.domain.ToDoUserRepository;
-import com.github.scompo.scompotodo.test.commons.IntegrationTransactionalTest;
+import com.github.scompo.scompotodo.test.commons.TransactionalTest;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@IntegrationTransactionalTest
+@TransactionalTest
 public class UsersTest {
 
 	@Autowired

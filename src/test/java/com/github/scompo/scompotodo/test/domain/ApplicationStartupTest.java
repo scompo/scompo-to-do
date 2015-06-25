@@ -6,10 +6,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.github.scompo.scompotodo.test.commons.IntegrationTransactionalTest;
+import com.github.scompo.scompotodo.test.commons.TransactionalTest;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@IntegrationTransactionalTest
+@TransactionalTest
 public class ApplicationStartupTest {
 
 	@Test

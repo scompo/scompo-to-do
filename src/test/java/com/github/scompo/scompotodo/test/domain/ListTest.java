@@ -26,10 +26,10 @@ import com.github.scompo.scompotodo.domain.ToDoList;
 import com.github.scompo.scompotodo.domain.ToDoListRepository;
 import com.github.scompo.scompotodo.domain.ToDoUser;
 import com.github.scompo.scompotodo.services.ToDoUserDetailsService;
-import com.github.scompo.scompotodo.test.commons.IntegrationTransactionalTest;
+import com.github.scompo.scompotodo.test.commons.TransactionalTest;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@IntegrationTransactionalTest
+@TransactionalTest
 public class ListTest {
 
 	@Autowired

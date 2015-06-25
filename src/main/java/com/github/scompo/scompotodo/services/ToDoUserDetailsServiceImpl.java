@@ -21,11 +21,6 @@ import com.github.scompo.scompotodo.domain.ToDoUserRepository;
 @Transactional
 public class ToDoUserDetailsServiceImpl implements ToDoUserDetailsService {
 
-	public ToDoUserDetailsServiceImpl() {
-
-		System.err.println("created user service impl");
-	}
-
 	@Autowired
 	private ToDoUserRepository toDoUserRepository;
 
