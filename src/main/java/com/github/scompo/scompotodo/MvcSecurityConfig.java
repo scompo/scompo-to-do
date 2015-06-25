@@ -1,4 +1,4 @@
-package com.github.scompo.scompotodo.configuration;
+package com.github.scompo.scompotodo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

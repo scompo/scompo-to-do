@@ -1,4 +1,4 @@
-package com.github.scompo.scompotodo.configuration;
+package com.github.scompo.scompotodo;
 
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
