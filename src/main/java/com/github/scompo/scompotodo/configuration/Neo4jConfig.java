@@ -10,7 +10,7 @@ import org.springframework.data.neo4j.config.Neo4jConfiguration;
 public class Neo4jConfig extends Neo4jConfiguration {
 
 	{
-		setBasePackage("com.github.scompo.scompoToDo.domain");
+		setBasePackage("com.github.scompo.scompoToDo");
 	}
 
 	@Bean(destroyMethod = "shutdown")
