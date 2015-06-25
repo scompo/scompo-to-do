@@ -23,8 +23,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.github.scompo.scompotodo.domain.CollaborationRole;
 import com.github.scompo.scompotodo.domain.ToDoList;
-import com.github.scompo.scompotodo.domain.ToDoListRepository;
 import com.github.scompo.scompotodo.domain.ToDoUser;
+import com.github.scompo.scompotodo.repository.ToDoListRepository;
 import com.github.scompo.scompotodo.services.ToDoUserDetailsService;
 import com.github.scompo.scompotodo.test.commons.TransactionalTest;
 

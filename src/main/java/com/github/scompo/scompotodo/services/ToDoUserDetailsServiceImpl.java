@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.github.scompo.scompotodo.domain.AuthorizationRole;
 import com.github.scompo.scompotodo.domain.ToDoUser;
 import com.github.scompo.scompotodo.domain.ToDoUserDetails;
-import com.github.scompo.scompotodo.domain.ToDoUserRepository;
+import com.github.scompo.scompotodo.repository.ToDoUserRepository;
 
 @Service
 @Transactional

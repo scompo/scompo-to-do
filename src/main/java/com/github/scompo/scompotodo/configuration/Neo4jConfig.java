@@ -8,7 +8,7 @@ import org.springframework.data.neo4j.config.EnableNeo4jRepositories;
 import org.springframework.data.neo4j.config.Neo4jConfiguration;
 
 @Configuration
-@EnableNeo4jRepositories(basePackages = "com.github.scompo.scompoToDo.domain")
+@EnableNeo4jRepositories(basePackages = "com.github.scompo.scompoToDo.repository")
 public class Neo4jConfig extends Neo4jConfiguration {
 	
 	public Neo4jConfig(){
