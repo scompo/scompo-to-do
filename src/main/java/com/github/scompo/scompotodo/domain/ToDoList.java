@@ -1,43 +1,28 @@
 package com.github.scompo.scompotodo.domain;
 
-import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Set;
 
 import org.neo4j.graphdb.Direction;
 import org.springframework.data.neo4j.annotation.Fetch;
-import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.NodeEntity;
 import org.springframework.data.neo4j.annotation.RelatedTo;
 import org.springframework.data.neo4j.annotation.RelatedToVia;
 
 @NodeEntity
-public class ToDoList {
-
-	@GraphId
-	private Long id;
-
+public class ToDoList extends AbstractEntity{
+	
 	private String name;
 
-	private LocalDate lastEditDate;
-
 	@Fetch
+	@RelatedTo(type = "COLLABORATOR_ON", direction = Direction.INCOMING)
+	private Set<ToDoUser> collaborators;
+	
 	@RelatedToVia(type = "COLLABORATOR_ON", direction = Direction.INCOMING)
 	private Collection<ToDoCollaboration> collaborations;
 
-	@RelatedTo(type = "COLLABORATOR_ON", direction = Direction.INCOMING)
-	private Set<ToDoUser> collaborators;
-
 	public ToDoList() {
 
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getName() {
@@ -48,12 +33,12 @@ public class ToDoList {
 		this.name = name;
 	}
 
-	public LocalDate getLastEditDate() {
-		return lastEditDate;
+	public Set<ToDoUser> getCollaborators() {
+		return collaborators;
 	}
 
-	public void setLastEditDate(LocalDate lastEditDate) {
-		this.lastEditDate = lastEditDate;
+	public void setCollaborators(Set<ToDoUser> collaborators) {
+		this.collaborators = collaborators;
 	}
 
 	public Collection<ToDoCollaboration> getCollaborations() {
@@ -62,13 +47,5 @@ public class ToDoList {
 
 	public void setCollaborations(Collection<ToDoCollaboration> collaborations) {
 		this.collaborations = collaborations;
-	}
-
-	public Set<ToDoUser> getCollaborators() {
-		return collaborators;
-	}
-
-	public void setCollaborators(Set<ToDoUser> collaborators) {
-		this.collaborators = collaborators;
 	}
 }

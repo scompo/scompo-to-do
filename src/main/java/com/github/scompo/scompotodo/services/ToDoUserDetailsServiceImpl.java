@@ -10,6 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.github.scompo.scompotodo.domain.AuthorizationRole;
 import com.github.scompo.scompotodo.domain.ToDoUser;
@@ -17,6 +18,7 @@ import com.github.scompo.scompotodo.domain.ToDoUserDetails;
 import com.github.scompo.scompotodo.domain.ToDoUserRepository;
 
 @Service
+@Transactional
 public class ToDoUserDetailsServiceImpl implements ToDoUserDetailsService {
 
 	@Autowired

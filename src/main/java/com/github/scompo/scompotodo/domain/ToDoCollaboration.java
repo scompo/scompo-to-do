@@ -1,17 +1,11 @@
 package com.github.scompo.scompotodo.domain;
 
-import java.time.LocalDate;
-
 import org.springframework.data.neo4j.annotation.EndNode;
-import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.RelationshipEntity;
 import org.springframework.data.neo4j.annotation.StartNode;
 
 @RelationshipEntity(type = "COLLABORATOR_ON")
-public class ToDoCollaboration {
-
-	@GraphId
-	private Long id;
+public class ToDoCollaboration extends AbstractEntity{
 
 	@StartNode
 	private ToDoUser user;
@@ -20,8 +14,6 @@ public class ToDoCollaboration {
 	private ToDoList list;
 
 	private CollaborationRole role;
-
-	private LocalDate date;
 
 	public ToDoCollaboration() {
 
@@ -51,19 +43,9 @@ public class ToDoCollaboration {
 		this.role = role;
 	}
 
-	public LocalDate getDate() {
-		return date;
-	}
-
-	public void setDate(LocalDate date) {
-		this.date = date;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
+	@Override
+	public String toString() {
+		return "ToDoCollaboration [id=" + getId() + ", user=" + user + ", list="
+				+ list + ", role=" + role + "]";
 	}
 }

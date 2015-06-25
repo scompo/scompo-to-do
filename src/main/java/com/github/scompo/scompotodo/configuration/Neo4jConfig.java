@@ -13,7 +13,7 @@ public class Neo4jConfig extends Neo4jConfiguration {
 		setBasePackage("com.github.scompo.scompoToDo.domain");
 	}
 
-	@Bean
+	@Bean(destroyMethod = "shutdown")
 	public GraphDatabaseService graphDatabaseService() {
 
 		return new GraphDatabaseFactory()

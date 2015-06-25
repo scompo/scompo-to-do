@@ -1,11 +1,9 @@
 package com.github.scompo.scompotodo.test.domain;
 
+import static com.github.scompo.scompotodo.test.domain.TestUtils.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-
-import java.util.HashSet;
-import java.util.Set;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -25,12 +23,6 @@ import com.github.scompo.scompotodo.test.commons.IntegrationTransactionalTest;
 @RunWith(SpringJUnit4ClassRunner.class)
 @IntegrationTransactionalTest
 public class UsersTest {
-
-	private static final String USER_NAME = "User Name";
-
-	private static final String USER_PASSWORD = "userPassword";
-
-	private static final String USER_LOGIN = "userLogin";
 
 	@Autowired
 	private Neo4jTemplate neo4jTemplate;
@@ -60,7 +52,7 @@ public class UsersTest {
 		ToDoUser userToCreate = null;
 		ToDoUser userCreated = null;
 
-		userToCreate = createUser(USER_LOGIN, USER_PASSWORD, USER_NAME);
+		userToCreate = createUser(USER_LOGIN_1, USER_PASSWORD_1, USER_NAME_1);
 
 		userCreated = toDoUserRepository.save(userToCreate);
 
@@ -74,26 +66,9 @@ public class UsersTest {
 				AuthorizationRole.ROLE_ADMIN));
 		assertTrue(userCreated.getAuthorizationRoles().contains(
 				AuthorizationRole.ROLE_USER));
-		assertNotNull(userCreated.getLists());
-		assertTrue(userCreated.getLists().isEmpty());
+		assertNotNull(userCreated.getCollaborations());
+		assertTrue(userCreated.getCollaborations().isEmpty());
 
-	}
-
-	private ToDoUser createUser(String login, String password, String name) {
-
-		ToDoUser userToCreate = new ToDoUser();
-
-		Set<AuthorizationRole> authorizationRoles = new HashSet<>();
-
-		authorizationRoles.add(AuthorizationRole.ROLE_ADMIN);
-		authorizationRoles.add(AuthorizationRole.ROLE_USER);
-
-		userToCreate.setAuthorizationRoles(authorizationRoles);
-		userToCreate.setLogin(login);
-		userToCreate.setPassword(password);
-		userToCreate.setName(name);
-
-		return userToCreate;
 	}
 
 }
