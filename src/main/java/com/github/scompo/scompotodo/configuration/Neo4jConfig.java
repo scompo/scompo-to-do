@@ -14,11 +14,13 @@ public class Neo4jConfig extends Neo4jConfiguration {
 	public Neo4jConfig(){
 		
 		setBasePackage("com.github.scompo.scompoToDo");
+		System.err.println("set base packages");
 	}
 
 	@Bean(destroyMethod = "shutdown")
 	public GraphDatabaseService graphDatabaseService() {
 
+		System.err.println("creating graph service");
 		return new GraphDatabaseFactory()
 				.newEmbeddedDatabase("scompo-to-do.db");
 	}
